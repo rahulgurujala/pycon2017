@@ -70,8 +70,7 @@ class Router:
 
     def match(self, path):
         for (pattern, callback) in self.routing_table:
-            m = re.match(pattern, path)
-            if m:
+            if m := re.match(pattern, path):
                 return (callback, m.groups())
         raise NotFound()
 
