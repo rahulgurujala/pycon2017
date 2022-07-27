@@ -27,7 +27,7 @@ RUNNERS = {
 @task(name="run")
 def run_example(ctx, ex):
     if not ex.startswith('ex'):
-        ex = 'ex' + ex
+        ex = f'ex{ex}'
     if ex not in RUNNERS:
         print(f"No such example: {ex}")
         return

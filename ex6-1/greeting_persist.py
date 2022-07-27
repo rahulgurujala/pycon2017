@@ -15,9 +15,7 @@ class GreetingDatabase:
                 "SELECT greeting_count FROM greeting_counts WHERE greeting=? AND name=?",
                 [greeting, name]
             )
-            rows = c.fetchall()
-
-            if rows:
+            if rows := c.fetchall():
                 count = rows[0][0] + 1
                 c.execute(
                     "UPDATE greeting_counts SET greeting_count=? WHERE greeting=? AND name=?",
